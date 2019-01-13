@@ -1,0 +1,12 @@
+C:\Work\DaniQuiz\DaniQuiz\ApiDaniQuiz\SolutionDaniQuiz\DaniQuizDomain\bin\Debug\netcoreapp2.0\DaniQuizDomain.deps.json
+C:\Work\DaniQuiz\DaniQuiz\ApiDaniQuiz\SolutionDaniQuiz\DaniQuizDomain\bin\Debug\netcoreapp2.0\DaniQuizDomain.dll
+C:\Work\DaniQuiz\DaniQuiz\ApiDaniQuiz\SolutionDaniQuiz\DaniQuizDomain\bin\Debug\netcoreapp2.0\DaniQuizDomain.pdb
+C:\Work\DaniQuiz\DaniQuiz\ApiDaniQuiz\SolutionDaniQuiz\DaniQuizDomain\bin\Debug\netcoreapp2.0\Microsoft.IdentityModel.Tokens.dll
+C:\Work\DaniQuiz\DaniQuiz\ApiDaniQuiz\SolutionDaniQuiz\DaniQuizDomain\bin\Debug\netcoreapp2.0\Microsoft.IdentityModel.Tokens.xml
+C:\Work\DaniQuiz\DaniQuiz\ApiDaniQuiz\SolutionDaniQuiz\DaniQuizDomain\obj\Debug\netcoreapp2.0\DaniQuizDomain.csprojResolveAssemblyReference.cache
+C:\Work\DaniQuiz\DaniQuiz\ApiDaniQuiz\SolutionDaniQuiz\DaniQuizDomain\obj\Debug\netcoreapp2.0\DaniQuizDomain.csproj.CoreCompileInputs.cache
+C:\Work\DaniQuiz\DaniQuiz\ApiDaniQuiz\SolutionDaniQuiz\DaniQuizDomain\obj\Debug\netcoreapp2.0\DaniQuizDomain.AssemblyInfoInputs.cache
+C:\Work\DaniQuiz\DaniQuiz\ApiDaniQuiz\SolutionDaniQuiz\DaniQuizDomain\obj\Debug\netcoreapp2.0\DaniQuizDomain.AssemblyInfo.cs
+C:\Work\DaniQuiz\DaniQuiz\ApiDaniQuiz\SolutionDaniQuiz\DaniQuizDomain\obj\Debug\netcoreapp2.0\DaniQuizDomain.csproj.CopyComplete
+C:\Work\DaniQuiz\DaniQuiz\ApiDaniQuiz\SolutionDaniQuiz\DaniQuizDomain\obj\Debug\netcoreapp2.0\DaniQuizDomain.dll
+C:\Work\DaniQuiz\DaniQuiz\ApiDaniQuiz\SolutionDaniQuiz\DaniQuizDomain\obj\Debug\netcoreapp2.0\DaniQuizDomain.pdb

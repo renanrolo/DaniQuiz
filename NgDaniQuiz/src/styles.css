@@ -1,0 +1,34 @@
+/* You can add global styles to this file, and also import other style files */
+
+a {
+    text-decoration: none;
+    color: initial;
+}
+a:hover{
+    text-decoration: none;
+    color: initial;
+}
+
+.bg-red{
+    background-color: red;
+}
+
+.bg-green{
+    background-color: green;
+}
+
+.has-success input{
+    border-color: green;
+}
+.has-error input{
+    border-color: red;
+}
+.has-success .help-block .fa{
+    color: green;
+}
+
+.has-error .help-block .fa{
+    color: red;
+}
+
+

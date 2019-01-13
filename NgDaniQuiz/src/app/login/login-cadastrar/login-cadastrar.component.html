@@ -1,0 +1,40 @@
+Bem vinda a tela de cadastro
+
+<br>
+<br>
+
+<div class="alert alert-danger" role="alert">
+  {{form.value | json}}
+</div>
+
+<br>
+<br>
+
+<section class="content">
+
+  <form [formGroup]="cadastrarForm" #form="ngForm" novalidate>
+
+    <div class="col-xs-12 col-sm-6 offset-sm-3">
+      <dq-input-container label="E-mail" errorMessage="E-mail inválido" smalltext="Seu E-mail será seu login">
+        <input class="form-control" formControlName="email" placeholder="E-mail" />
+      </dq-input-container>
+    </div>
+
+    <div class="col-xs-12 col-sm-6 offset-sm-3">
+      <dq-input-container errorMessage="Campo obrigátório e com 5 caracteres" label="Nome">
+        <input class="form-control" formControlName="password" placeholder="Nome" />
+      </dq-input-container>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 offset-sm-3">
+        <button (click)="enviarCadastro(cadastrarForm.value)" type="submit" [disabled]="!cadastrarForm.valid" class="btn btn-success pull-right">
+          <i class="fa fa-credit-card"></i> Concluir Pedido
+        </button>
+      </div>
+    </div>
+
+
+  </form>
+
+</section>

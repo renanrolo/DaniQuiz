@@ -1,0 +1,16 @@
+C:\Work\DaniQuiz\DaniQuiz\ApiDaniQuiz\SolutionDaniQuiz\DaniQuizApplication\obj\Debug\netcoreapp2.0\DaniQuizApplication.csprojResolveAssemblyReference.cache
+C:\Work\DaniQuiz\DaniQuiz\ApiDaniQuiz\SolutionDaniQuiz\DaniQuizApplication\obj\Debug\netcoreapp2.0\DaniQuizApplication.csproj.CoreCompileInputs.cache
+C:\Work\DaniQuiz\DaniQuiz\ApiDaniQuiz\SolutionDaniQuiz\DaniQuizApplication\obj\Debug\netcoreapp2.0\DaniQuizApplication.AssemblyInfoInputs.cache
+C:\Work\DaniQuiz\DaniQuiz\ApiDaniQuiz\SolutionDaniQuiz\DaniQuizApplication\obj\Debug\netcoreapp2.0\DaniQuizApplication.AssemblyInfo.cs
+C:\Work\DaniQuiz\DaniQuiz\ApiDaniQuiz\SolutionDaniQuiz\DaniQuizApplication\bin\Debug\netcoreapp2.0\DaniQuizApplication.deps.json
+C:\Work\DaniQuiz\DaniQuiz\ApiDaniQuiz\SolutionDaniQuiz\DaniQuizApplication\bin\Debug\netcoreapp2.0\DaniQuizApplication.dll
+C:\Work\DaniQuiz\DaniQuiz\ApiDaniQuiz\SolutionDaniQuiz\DaniQuizApplication\bin\Debug\netcoreapp2.0\DaniQuizApplication.pdb
+C:\Work\DaniQuiz\DaniQuiz\ApiDaniQuiz\SolutionDaniQuiz\DaniQuizApplication\bin\Debug\netcoreapp2.0\DaniQuizDomain.dll
+C:\Work\DaniQuiz\DaniQuiz\ApiDaniQuiz\SolutionDaniQuiz\DaniQuizApplication\bin\Debug\netcoreapp2.0\DaniQuizRepositories.dll
+C:\Work\DaniQuiz\DaniQuiz\ApiDaniQuiz\SolutionDaniQuiz\DaniQuizApplication\bin\Debug\netcoreapp2.0\Microsoft.IdentityModel.Tokens.dll
+C:\Work\DaniQuiz\DaniQuiz\ApiDaniQuiz\SolutionDaniQuiz\DaniQuizApplication\bin\Debug\netcoreapp2.0\DaniQuizDomain.pdb
+C:\Work\DaniQuiz\DaniQuiz\ApiDaniQuiz\SolutionDaniQuiz\DaniQuizApplication\bin\Debug\netcoreapp2.0\DaniQuizRepositories.pdb
+C:\Work\DaniQuiz\DaniQuiz\ApiDaniQuiz\SolutionDaniQuiz\DaniQuizApplication\bin\Debug\netcoreapp2.0\Microsoft.IdentityModel.Tokens.xml
+C:\Work\DaniQuiz\DaniQuiz\ApiDaniQuiz\SolutionDaniQuiz\DaniQuizApplication\obj\Debug\netcoreapp2.0\DaniQuizApplication.csproj.CopyComplete
+C:\Work\DaniQuiz\DaniQuiz\ApiDaniQuiz\SolutionDaniQuiz\DaniQuizApplication\obj\Debug\netcoreapp2.0\DaniQuizApplication.dll
+C:\Work\DaniQuiz\DaniQuiz\ApiDaniQuiz\SolutionDaniQuiz\DaniQuizApplication\obj\Debug\netcoreapp2.0\DaniQuizApplication.pdb

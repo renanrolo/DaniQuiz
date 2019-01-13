@@ -1,0 +1,37 @@
+<DQ-head></DQ-head>
+
+<form [formGroup]="loginForm" novalidate class="col-xs-12 col-sm-6 offset-sm-3" *ngIf="!isLoged()">
+
+  <h1>Login Professor</h1>
+
+  <!-- <p>
+    Esse é o formulario: {{loginForm.value | json}}
+  </p> -->
+
+  <div>
+    <dq-input-container errorMessage="E-mail inválido" label="E-mail" [showTip]="true">
+      <input type="text" class="form-control" formControlName="email" placeholder="E-mail" />
+    </dq-input-container>
+  </div>
+
+  <div>
+    <dq-input-container errorMessage="Senha obrigatória" label="Senha">
+      <input type="password" class="form-control" formControlName="password" placeholder="Senha" />
+    </dq-input-container>
+  </div>
+
+  <button [disabled]="!isValid()" (click)="login()" type="button" class="btn btn-primary">Entrar</button>
+
+</form>
+
+<div class="col-xs-12 col-sm-6 offset-sm-3" *ngIf="isLoged()">
+  <h1>Olá {{user.Name}}</h1>
+</div>
+
+<br>
+
+<div class="col-xs-12 col-sm-6 offset-sm-3">
+  <a [routerLink]="['/cadastrar']">
+    Não tem uma conta ainda? Não se desespere, clique aqui e faça seu cadastro!
+  </a>
+</div>
