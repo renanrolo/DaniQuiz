@@ -3,4 +3,5 @@ export class LogedUser {
     Email: string;
     accessToken: string;
     Expiration: Date;
+    authenticated;
 }

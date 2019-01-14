@@ -13,19 +13,23 @@ export class LoginService {
     user: LogedUser;
     navigateTo: string;
 
+    private userStorageKey = "daniQuizUser";
 
     constructor(private http: HttpClient,
         private fb: FormBuilder,
         private route: Router) {
+        this.checkUser();
     }
 
     cadastrarUsuario(formulario: any): Observable<LogedUser> {
-        return this.http.post<LogedUser>(`${URL_API}/cadastrar`, formulario)
-            .do(user => this.user = user);
+        return this.http.post<LogedUser>(`${URL_API}/cadastrar`, formulario).do(user => {
+            this.user = user;
+            sessionStorage.setItem(this.userStorageKey, JSON.stringify(user));
+        });
     }
 
     ngOnInit() {
-        console.log("LoginService.ngOnInit: user é = ", this.user);
+        this.checkUser();
     }
 
     isLoged(): boolean {
@@ -33,11 +37,31 @@ export class LoginService {
     }
 
     login(email: string, password: string): Observable<LogedUser> {
-        return this.http.post<LogedUser>(`${URL_API}/login`, { email: email, password: password });
+        return this.http.post<LogedUser>(`${URL_API}/login`, { email: email, senha: password })
+            .do(user => {
+                if (user.authenticated) {
+                    this.user = user;
+                    sessionStorage.setItem(this.userStorageKey, JSON.stringify(user));
+                }
+            });
     }
 
     handdleLogin(returnPath?: string) {
         this.navigateTo = returnPath || '';
         this.route.navigate(['/login', returnPath]);
+    }
+
+    private checkUser() {
+        if (!this.user) {
+            let usuarioSalvo = JSON.parse(sessionStorage.getItem(this.userStorageKey));
+            if (usuarioSalvo) {
+                this.user = new LogedUser;
+                this.user.Email = usuarioSalvo.Email;
+                this.user.Expiration = usuarioSalvo.Expiration;
+                this.user.Name = usuarioSalvo.Name;
+                this.user.accessToken = usuarioSalvo.accessToken;
+                this.user.authenticated = usuarioSalvo.authenticated;
+            } 
+        }
     }
 }
