@@ -31,4 +31,12 @@ a:hover{
     color: red;
 }
 
+body {
+    background-color: lightgray;
+}
 
+.teste {
+    background-color: #fff;
+    border: 1px solid lightblue;
+    padding: 20px;
+}

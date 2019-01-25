@@ -37,16 +37,17 @@ namespace DaniQuizApi.Controllers
 
             if (credenciaisValidas)
             {
-                return AutenticarUsuarioLogin.Autenticar(usuario);
+                return new {
+                    status = true,
+                    message = "Usuário logado com sucesso",
+                    authorize = AutenticarUsuarioLogin.Autenticar(usuario) };
             }
-            else
+
+            return new
             {
-                return new
-                {
-                    authenticated = false,
-                    message = "Falha ao autenticar"
-                };
-            }
+                status = false,
+                message = "Falha ao autenticar"
+            };
         }
 
 

@@ -6,11 +6,11 @@ import { LoginService } from 'src/app/security/login.service';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'DQ-login-cadastrar',
-  templateUrl: './login-cadastrar.component.html',
-  styleUrls: ['./login-cadastrar.component.css']
+  selector: 'dq-cadastrar',
+  templateUrl: './cadastrar.component.html',
+  styleUrls: ['./cadastrar.component.css']
 })
-export class LoginCadastrarComponent implements OnInit {
+export class CadastrarComponent implements OnInit {
 
   cadastrarForm: FormGroup;
 
@@ -21,16 +21,16 @@ export class LoginCadastrarComponent implements OnInit {
 
   ngOnInit() {
     this.cadastrarForm = this.formBuilder.group({
-      password: this.formBuilder.control('', [Validators.required, Validators.minLength(6)]),
+      password: this.formBuilder.control('', [Validators.required, Validators.minLength(4)]),
       email: this.formBuilder.control('', [Validators.required, Validators.email])
     });
   }
 
   enviarCadastro(formulario: any) {
     this.loginService.cadastrarUsuario(formulario)
-      .subscribe(() => {
-        this.route.navigate(['/']);
-      });
+                    .subscribe(() => {
+                      this.route.navigate(['/']);
+                    });
   }
 
 }

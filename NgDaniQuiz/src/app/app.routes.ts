@@ -2,7 +2,7 @@ import { Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { LoggedInGuard } from './security/loggedin.guard';
 import { LoginComponent } from './login/login.component';
-import { LoginCadastrarComponent } from './login/login-cadastrar/login-cadastrar.component';
+import { CadastrarComponent } from './cadastrar/cadastrar.component';
 
 // Components
 
@@ -10,7 +10,7 @@ export const ROUTES: Routes = [
     { path: '', component: HomeComponent },
     { path: 'login/:to', component: LoginComponent },
     { path: 'login', component: LoginComponent },
-    { path: 'cadastrar', component: LoginCadastrarComponent },
+    { path: 'cadastrar', component: CadastrarComponent },
 
     //Lazyload
     { path: 'professor/home', loadChildren: './professor/professor.module#ProfessorModule', canLoad: [LoggedInGuard]  }

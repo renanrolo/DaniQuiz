@@ -23,8 +23,7 @@ export class LoginService {
 
     cadastrarUsuario(formulario: any): Observable<LogedUser> {
         return this.http.post<LogedUser>(`${URL_API}/cadastrar`, formulario).do(user => {
-            this.user = user;
-            sessionStorage.setItem(this.userStorageKey, JSON.stringify(user));
+           this.setUser(user);
         });
     }
 
@@ -39,9 +38,8 @@ export class LoginService {
     login(email: string, password: string): Observable<LogedUser> {
         return this.http.post<LogedUser>(`${URL_API}/login`, { email: email, senha: password })
             .do(user => {
-                if (user.authenticated) {
-                    this.user = user;
-                    sessionStorage.setItem(this.userStorageKey, JSON.stringify(user));
+                if (user.status && user.authenticated) {
+                    this.setUser(user);
                 }
             });
     }
@@ -61,7 +59,12 @@ export class LoginService {
                 this.user.Name = usuarioSalvo.Name;
                 this.user.accessToken = usuarioSalvo.accessToken;
                 this.user.authenticated = usuarioSalvo.authenticated;
-            } 
+            }
         }
+    }
+
+    public setUser(user: LogedUser) {
+        this.user = user;
+        sessionStorage.setItem(this.userStorageKey, JSON.stringify(user));
     }
 }

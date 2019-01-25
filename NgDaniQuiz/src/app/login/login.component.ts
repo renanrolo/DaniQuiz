@@ -39,7 +39,10 @@ export class LoginComponent implements OnInit {
   login() {
     this.loginService.login(this.loginForm.value.email, this.loginForm.value.password)
       .subscribe(user => {
-        if (user.authenticated) {
+        if (user.status === false) {
+          console.log("erro")
+        }
+        else if (user.status && user.authenticated) {
           this.route.navigate([this.navigateTo]);
         }
       },

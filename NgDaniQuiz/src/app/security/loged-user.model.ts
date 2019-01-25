@@ -3,5 +3,6 @@ export class LogedUser {
     Email: string;
     accessToken: string;
     Expiration: Date;
-    authenticated;
+    authenticated: boolean;
+    status: boolean;
 }
