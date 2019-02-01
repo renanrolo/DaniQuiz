@@ -44,11 +44,12 @@ namespace DaniQuizApi.Autenticacao
 
             return new
             {
+                status = true,
                 authenticated = true,
                 created = dataCriacao.ToString("yyyy-MM-dd HH:mm:ss"),
                 expiration = dataExpiracao.ToString("yyyy-MM-dd HH:mm:ss"),
                 accessToken = token,
-                message = "OK"
+                message = "Usuário logado com sucesso"
             };
         }
     }

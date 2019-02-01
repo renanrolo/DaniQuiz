@@ -5,4 +5,5 @@ export class LogedUser {
     Expiration: Date;
     authenticated: boolean;
     status: boolean;
+    message: string;
 }

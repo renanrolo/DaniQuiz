@@ -7,6 +7,6 @@ namespace DaniQuizDomain.IApplication
 {
     public interface IAppCadastrar
     {
-        UsuarioLogin NovoLogin(UsuarioLogin usuarioLogin);
+        Envelope<UsuarioLogin> NovoLogin(UsuarioLogin usuarioLogin);
     }
 }

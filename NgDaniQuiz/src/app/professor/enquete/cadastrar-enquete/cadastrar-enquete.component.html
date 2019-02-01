@@ -1,0 +1,33 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a [routerLink]="['/professor/enquete']">Enquete</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Cadastrar</li>
+  </ol>
+</nav>
+
+
+<form [formGroup]="cadastrarForm" novalidate>
+
+  <div class="col-xs-12">
+    <dq-input-container errorMessage="Campo obrigátório e com 3 caracteres" showTip="true" label="Nome Reduzido">
+      <input class="form-control" formControlName="NomeReduzido" placeholder="Nome" />
+    </dq-input-container>
+  </div>
+
+  <div class="col-xs-12">
+    <dq-input-container errorMessage="Campo obrigátório e com 5 caracteres" showTip="true" label="Titulo">
+      <input class="form-control" formControlName="Titulo" placeholder="Título" />
+    </dq-input-container>
+  </div>
+
+  <div class="col-xs-12">
+    <dq-input-container errorMessage="Campo obrigátório e com 5 caracteres" showTip="true" label="Pergunta">
+      <input class="form-control" formControlName="Pergunta" placeholder="Pergunta" />
+    </dq-input-container>
+  </div>
+
+  <button (click)="submitForm(cadastrarForm.value)" [disabled]="!cadastrarForm.valid" class="btn btn-success">
+    Criar Enquete
+  </button>
+
+</form>

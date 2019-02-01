@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
-import { LoginService } from '../security/login.service';
+import { LoginService } from './login.service';
 import { Router, ActivatedRoute } from '@angular/router';
-import { LogedUser } from '../security/loged-user.model';
+import { LogedUser } from './loged-user.model';
+import { NotificationService } from '../shared/messages/notification.service';
 
 @Component({
   selector: 'DQ-login',
@@ -17,7 +18,8 @@ export class LoginComponent implements OnInit {
   constructor(private formBuilder: FormBuilder,
     private loginService: LoginService,
     private route: Router,
-    private activatedRoute: ActivatedRoute) { }
+    private activatedRoute: ActivatedRoute,
+    private notificationService: NotificationService) { }
 
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
@@ -27,26 +29,14 @@ export class LoginComponent implements OnInit {
     this.navigateTo = this.activatedRoute.snapshot.params['to'] || '/';
   }
 
-  // login() {
-  //   this.loginService.login(this.loginForm.value.email, this.loginForm.value.password)
-  //     .subscribe(user => { this.user = user; console.log("entrou", user) },
-  //       (erro: Error) => { console.log(erro) }, //Está faltando o tratamento de erro
-  //       () =>
-  //         this.route.navigate([this.navigateTo])
-  //     )
-  // }
-
   login() {
     this.loginService.login(this.loginForm.value.email, this.loginForm.value.password)
       .subscribe(user => {
-        if (user.status === false) {
-          console.log("erro")
-        }
-        else if (user.status && user.authenticated) {
+        if (user.status === true) {
           this.route.navigate([this.navigateTo]);
         }
       },
-        (erro: Error) => { console.log(erro) } //Está faltando o tratamento de erro
+        (erro: Error) => { this.notificationService.notify(erro.message); } //Está faltando o tratamento de erro
       )
   }
 

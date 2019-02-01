@@ -28,12 +28,15 @@ namespace DaniQuizApi.Controllers
                 return new { status = false, mensagem = "E-mail e senha são obrigatórios!" };
 
             var usuarioLoginCriado = _appCadastrar.NovoLogin(new UsuarioLogin()
-            {
-                Email = novoLogin.Email,
-                Senha = novoLogin.Password
-            });
+                {
+                    Email = novoLogin.Email,
+                    Senha = novoLogin.Password
+                });
 
-            return AutenticarUsuarioLogin.Autenticar(usuarioLoginCriado);
+            if (usuarioLoginCriado.Status)
+                return AutenticarUsuarioLogin.Autenticar(usuarioLoginCriado.Body);
+
+            return usuarioLoginCriado;
         }
 
 

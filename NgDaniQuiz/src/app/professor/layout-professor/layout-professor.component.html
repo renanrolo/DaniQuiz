@@ -1,0 +1,19 @@
+<!-- menu topo -->
+<!-- <DQ-head></DQ-head> -->
+
+<div class="page-wrapper chiller-theme {{menuLateralService.classMenu}}" id="navbar-collapse">
+  <a id="show-sidebar" class="btn btn-sm btn-dark" (click)="menuLateralService.toggleNavBar()">
+    <i class="fa fa-bars"></i>
+  </a>
+
+  <!-- menu lateral -->
+  <DQ-menu-lateral-professor></DQ-menu-lateral-professor>
+
+  <main class="page-content">
+    <div class="container-fluid">
+
+      <router-outlet></router-outlet>
+
+    </div>
+  </main>
+</div>

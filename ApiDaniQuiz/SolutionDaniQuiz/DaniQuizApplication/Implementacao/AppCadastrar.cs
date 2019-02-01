@@ -1,6 +1,7 @@
 ﻿using DaniQuizDomain.Entidades;
 using DaniQuizDomain.IApplication;
 using DaniQuizRepositories.Contextos;
+using System.Linq;
 
 namespace DaniQuizApplication.Implementacao
 {
@@ -12,15 +13,16 @@ namespace DaniQuizApplication.Implementacao
             _daniQuizContext = daniQuizContext;
         }
 
-        public UsuarioLogin NovoLogin(UsuarioLogin usuarioLogin)
+        public Envelope<UsuarioLogin> NovoLogin(UsuarioLogin usuarioLogin)
         {
+            if (_daniQuizContext.UsuarioLogin.Any(x => x.Email == usuarioLogin.Email))
+                return new Envelope<UsuarioLogin>() { Message = "Email já está em uso." };
+
             _daniQuizContext.UsuarioLogin.Add(usuarioLogin);
-
             _daniQuizContext.Usuario.Add(new Usuario() { Email = usuarioLogin.Email });
-
             _daniQuizContext.SaveChanges();
 
-            return usuarioLogin;
+            return new Envelope<UsuarioLogin>(usuarioLogin);
         }
     }
 }

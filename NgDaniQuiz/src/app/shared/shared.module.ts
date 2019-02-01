@@ -4,17 +4,31 @@ import { CommonModule } from "@angular/common";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { LoginInputComponent } from "../login/input/login.input";
 import { NotificationComponent } from './messages/notification/notification.component';
+import { HeadComponent } from "../home/head/head.component";
+import { RouterModule } from "@angular/router";
 
 
 @NgModule({
-    declarations: [InputComponent, LoginInputComponent, NotificationComponent],
+    declarations: [
+        InputComponent,
+        LoginInputComponent,
+        NotificationComponent,
+        HeadComponent
+    ],
     imports: [
-        CommonModule, FormsModule, ReactiveFormsModule
+        RouterModule,
+        CommonModule,
+        FormsModule,
+        ReactiveFormsModule
     ],
     exports: [
-        CommonModule, FormsModule, ReactiveFormsModule,
-        InputComponent, LoginInputComponent,
-        NotificationComponent
+        CommonModule,
+        FormsModule,
+        ReactiveFormsModule,
+        InputComponent,
+        LoginInputComponent,
+        NotificationComponent,
+        HeadComponent
     ]
 })
 

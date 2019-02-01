@@ -6,6 +6,7 @@ import { URL_API } from "../app.api";
 import { Router } from "@angular/router";
 import { LogedUser } from "./loged-user.model";
 import 'rxjs/add/operator/do';
+import { NotificationService } from "../shared/messages/notification.service";
 
 @Injectable()
 export class LoginService {
@@ -17,13 +18,17 @@ export class LoginService {
 
     constructor(private http: HttpClient,
         private fb: FormBuilder,
-        private route: Router) {
+        private route: Router,
+        private notificationService: NotificationService) {
         this.checkUser();
     }
 
     cadastrarUsuario(formulario: any): Observable<LogedUser> {
         return this.http.post<LogedUser>(`${URL_API}/cadastrar`, formulario).do(user => {
-           this.setUser(user);
+            this.notificationService.notify(user.message);
+            if(user.status === true){
+                this.setUser(user);
+            }
         });
     }
 
@@ -35,11 +40,19 @@ export class LoginService {
         return this.user !== undefined;
     }
 
+    logOut() {
+        this.setUser(undefined);
+    }
+
     login(email: string, password: string): Observable<LogedUser> {
         return this.http.post<LogedUser>(`${URL_API}/login`, { email: email, senha: password })
             .do(user => {
-                if (user.status && user.authenticated) {
+                if (user.status === true) {
+                    this.notificationService.notify(user.message);
                     this.setUser(user);
+                }
+                else if (user.status === false) {
+                    this.notificationService.notify(user.message);
                 }
             });
     }
@@ -65,6 +78,12 @@ export class LoginService {
 
     public setUser(user: LogedUser) {
         this.user = user;
-        sessionStorage.setItem(this.userStorageKey, JSON.stringify(user));
+        if (user) {
+            sessionStorage.setItem(this.userStorageKey, JSON.stringify(user));
+        }
+        else {
+            sessionStorage.removeItem(this.userStorageKey);
+        }
+
     }
 }

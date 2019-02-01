@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { URL_API } from 'src/app/app.api';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
-import { LoginService } from 'src/app/security/login.service';
+import { LoginService } from 'src/app/login/login.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -28,8 +28,10 @@ export class CadastrarComponent implements OnInit {
 
   enviarCadastro(formulario: any) {
     this.loginService.cadastrarUsuario(formulario)
-                    .subscribe(() => {
-                      this.route.navigate(['/']);
+                    .subscribe(user => {
+                      if(user.status === true){
+                        this.route.navigate(['/']);
+                      }
                     });
   }
 

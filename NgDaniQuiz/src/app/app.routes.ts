@@ -3,17 +3,35 @@ import { HomeComponent } from './home/home.component';
 import { LoggedInGuard } from './security/loggedin.guard';
 import { LoginComponent } from './login/login.component';
 import { CadastrarComponent } from './cadastrar/cadastrar.component';
+import { PublicLayoutComponent } from './public-layout/public-layout.component';
 
 // Components
 
 export const ROUTES: Routes = [
-    { path: '', component: HomeComponent },
-    { path: 'login/:to', component: LoginComponent },
-    { path: 'login', component: LoginComponent },
-    { path: 'cadastrar', component: CadastrarComponent },
+
+    {
+        path: '', component: PublicLayoutComponent,
+        children: [
+            { path: '', redirectTo: 'home', pathMatch: 'full' },
+            { path: 'home', component: HomeComponent },
+            { path: 'login/:to', component: LoginComponent },
+            { path: 'login', component: LoginComponent },
+            { path: 'cadastrar', component: CadastrarComponent }
+        ]
+    },
+
+    // { path: '', component: HomeComponent },
+    // { path: 'login/:to', component: LoginComponent },
+    // { path: 'login', component: LoginComponent },
+    // { path: 'cadastrar', component: CadastrarComponent },
 
     //Lazyload
-    { path: 'professor/home', loadChildren: './professor/professor.module#ProfessorModule', canLoad: [LoggedInGuard]  }
+    {
+        path: 'professor',
+        loadChildren: './professor/professor.module#ProfessorModule',
+        canLoad: [LoggedInGuard],
+        canActivate: [LoggedInGuard]
+    }
 
     // {
     //     path: 'restaurants/:id', component: RestaurantDetailComponent,

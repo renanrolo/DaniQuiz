@@ -1,9 +1,10 @@
-import { CanLoad, Route } from "@angular/router";
+import { CanLoad, Route, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from "@angular/router";
 import { Injectable } from "@angular/core";
-import { LoginService } from "./login.service";
+import { LoginService } from "../login/login.service";
+import { Observable } from "rxjs";
 
 @Injectable()
-export class LoggedInGuard implements CanLoad {
+export class LoggedInGuard implements CanLoad, CanActivate {
 
     constructor(private loginService: LoginService) { }
 
@@ -16,4 +17,11 @@ export class LoggedInGuard implements CanLoad {
         this.loginService.handdleLogin(`/${route.path}`);
     }
 
+    canActivate(
+        route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
+            if (this.loginService.isLoged()) {
+                return true;
+            }
+            this.loginService.handdleLogin(`/${route.routeConfig.path}`);
+    }
 }
