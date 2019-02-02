@@ -13,7 +13,7 @@ import 'rxjs/add/operator/switchMap';
     trigger('notification-visibility', [
       state('hidden', style({
         opacity: 0,
-        right: '-105px'
+        right: '-250px'
       })),
       state('visible', style({
         opacity: 1,

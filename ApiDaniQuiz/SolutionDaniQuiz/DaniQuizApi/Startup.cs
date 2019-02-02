@@ -37,8 +37,8 @@ namespace DaniQuizApi
                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddScoped<IAppUsuarioLogin, AppUsuarioLogin>();
-
             services.AddScoped<IAppCadastrar, AppCadastrar>();
+            services.AddScoped<IAppEnquete, AppEnquete>();
 
             var signingConfigurations = new SigningConfigurations();
             services.AddSingleton(signingConfigurations);
@@ -82,6 +82,7 @@ namespace DaniQuizApi
                     .RequireAuthenticatedUser().Build());
             });
 
+            services.AddCors();
             services.AddMvc();
         }
 
@@ -101,8 +102,12 @@ namespace DaniQuizApi
                 app.UseDeveloperExceptionPage();
             }
 
+            //app.UseCors(builder =>
+            //    builder.WithOrigins("http://localhost:4200").AllowAnyHeader().AllowAnyMethod().Build());
+            //
+
             app.UseCors(builder =>
-                builder.WithOrigins("http://localhost:4200").AllowAnyHeader().AllowAnyMethod().Build());
+               builder.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod().Build());
 
             app.UseMvc();
         }

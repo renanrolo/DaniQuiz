@@ -1,8 +1,8 @@
 export class LogedUser {
-    Name: string;
-    Email: string;
+    name: string;
+    email: string;
     accessToken: string;
-    Expiration: Date;
+    expiration: Date;
     authenticated: boolean;
     status: boolean;
     message: string;

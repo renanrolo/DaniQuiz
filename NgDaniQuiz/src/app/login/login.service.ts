@@ -47,6 +47,7 @@ export class LoginService {
     login(email: string, password: string): Observable<LogedUser> {
         return this.http.post<LogedUser>(`${URL_API}/login`, { email: email, senha: password })
             .do(user => {
+
                 if (user.status === true) {
                     this.notificationService.notify(user.message);
                     this.setUser(user);
@@ -67,9 +68,9 @@ export class LoginService {
             let usuarioSalvo = JSON.parse(sessionStorage.getItem(this.userStorageKey));
             if (usuarioSalvo) {
                 this.user = new LogedUser;
-                this.user.Email = usuarioSalvo.Email;
-                this.user.Expiration = usuarioSalvo.Expiration;
-                this.user.Name = usuarioSalvo.Name;
+                this.user.email = usuarioSalvo.email;
+                this.user.expiration = usuarioSalvo.expiration;
+                this.user.name = usuarioSalvo.name;
                 this.user.accessToken = usuarioSalvo.accessToken;
                 this.user.authenticated = usuarioSalvo.authenticated;
             }

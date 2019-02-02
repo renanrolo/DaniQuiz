@@ -10,12 +10,13 @@ import { MenuLateralService } from '../menu-lateral-professor/menu-lateral-servi
 @Injectable()
 export class LayoutProfessorComponent implements OnInit {
 
-  sidebarClass: string;
-
   constructor(public menuLateralService: MenuLateralService) { }
 
   ngOnInit() {
-    this.sidebarClass = this.menuLateralService.classMenu;
+  }
+
+  toggleMenu() {
+    this.menuLateralService.toggleNavBar();
   }
 
 }

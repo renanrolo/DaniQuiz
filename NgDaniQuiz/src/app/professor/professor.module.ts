@@ -9,6 +9,7 @@ import { MenuLateralService } from "./menu-lateral-professor/menu-lateral-servic
 import { EnqueteComponent } from './enquete/enquete.component';
 import { CadastrarEnqueteComponent } from './enquete/cadastrar-enquete/cadastrar-enquete.component';
 import { EnqueteService } from "./enquete/enquete-service";
+import { MenuTopProfessorComponent } from './menu-top-professor/menu-top-professor.component';
 
 const ROUTES: Routes = [
     {
@@ -31,10 +32,11 @@ const ROUTES: Routes = [
         LayoutProfessorComponent,
         MenuLateralProfessorComponent,
         EnqueteComponent,
-        CadastrarEnqueteComponent
+        CadastrarEnqueteComponent,
+        MenuTopProfessorComponent
     ],
     imports: [
-        SharedModule,
+        SharedModule.forRoot(),
         RouterModule.forChild(ROUTES)
     ],
     providers: [MenuLateralService, EnqueteService],

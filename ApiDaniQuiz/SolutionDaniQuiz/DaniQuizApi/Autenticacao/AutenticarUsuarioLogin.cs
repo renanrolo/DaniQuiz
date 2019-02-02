@@ -13,11 +13,10 @@ namespace DaniQuizApi.Autenticacao
 {
     public class AutenticarUsuarioLogin
     {
-        public static object Autenticar(UsuarioLogin usuario)
+        public static object Autenticar(UsuarioLogin usuario,
+            SigningConfigurations signingConfigurations,
+            TokenConfigurations tokenConfigurations)
         {
-            var tokenConfigurations = new TokenConfigurations();
-            var signingConfigurations = new SigningConfigurations();
-
             ClaimsIdentity identity = new ClaimsIdentity(
                    new GenericIdentity(usuario.Email, "Login"),
                    new[] {
@@ -49,7 +48,8 @@ namespace DaniQuizApi.Autenticacao
                 created = dataCriacao.ToString("yyyy-MM-dd HH:mm:ss"),
                 expiration = dataExpiracao.ToString("yyyy-MM-dd HH:mm:ss"),
                 accessToken = token,
-                message = "Usuário logado com sucesso"
+                message = "Usuário logado com sucesso",
+                email = usuario.Email
             };
         }
     }

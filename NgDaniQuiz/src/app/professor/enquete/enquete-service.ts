@@ -17,12 +17,7 @@ export class EnqueteService {
         var request = this.http.post<Envelope<any>>(`${URL_API}/CadastrarEnquete`, formulario);
 
         request.subscribe(envelope => {
-
-            console.log("envelope",envelope)
-            if (envelope.status === true) {
-                this.route.navigate(['/']);
-            }
-            else {
+            if (envelope.status !== true) {
                 this.notification.notify(envelope.message);
             }
         });

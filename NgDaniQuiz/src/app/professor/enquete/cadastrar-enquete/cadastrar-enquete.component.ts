@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { EnqueteService } from '../enquete-service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'DQ-cadastrar-enquete',
@@ -12,7 +13,8 @@ export class CadastrarEnqueteComponent implements OnInit {
   cadastrarForm: FormGroup;
 
   constructor(private formBuilder: FormBuilder,
-    private enqueteService: EnqueteService) { }
+    private enqueteService: EnqueteService,
+    private route: Router) { }
 
   ngOnInit() {
     this.cadastrarForm = this.formBuilder.group({
@@ -23,6 +25,15 @@ export class CadastrarEnqueteComponent implements OnInit {
   }
 
   submitForm(formulario: any) {
-    this.enqueteService.cadastrar(formulario);
+    this.enqueteService.cadastrar(formulario)
+      .subscribe(envelope => {
+
+        console.log("envelope", envelope)
+        if (envelope.status === true) {
+          this.route.navigate(['/professor/enquete']);
+        }
+
+      });
   }
+
 }

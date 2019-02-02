@@ -22,19 +22,21 @@ namespace DaniQuizApi.Controllers
 
         [HttpPost]
         [AllowAnonymous]
-        public object Post([FromBody]NovoLogin novoLogin)
+        public object Post([FromBody]NovoLogin novoLogin,
+            [FromServices]SigningConfigurations signingConfigurations,
+            [FromServices]TokenConfigurations tokenConfigurations)
         {
             if (!ModelState.IsValid)
                 return new { status = false, mensagem = "E-mail e senha são obrigatórios!" };
 
             var usuarioLoginCriado = _appCadastrar.NovoLogin(new UsuarioLogin()
-                {
-                    Email = novoLogin.Email,
-                    Senha = novoLogin.Password
-                });
+            {
+                Email = novoLogin.Email,
+                Senha = novoLogin.Password
+            });
 
             if (usuarioLoginCriado.Status)
-                return AutenticarUsuarioLogin.Autenticar(usuarioLoginCriado.Body);
+                return AutenticarUsuarioLogin.Autenticar(usuarioLoginCriado.Body, signingConfigurations, tokenConfigurations);
 
             return usuarioLoginCriado;
         }

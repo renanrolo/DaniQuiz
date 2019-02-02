@@ -11,9 +11,7 @@ import { HomeComponent } from './home/home.component';
 import { SharedModule } from './shared/shared.module';
 import { LoggedInGuard } from './security/loggedin.guard';
 import { LoginComponent } from './login/login.component';
-import { LoginService } from './login/login.service';
 import { CadastrarComponent } from './cadastrar/cadastrar.component';
-import { NotificationService } from './shared/messages/notification.service';
 import { MenuTopComponent } from './security/menu-top/menu-top.component';
 import { PublicLayoutComponent } from './public-layout/public-layout.component';
 
@@ -29,11 +27,11 @@ import { PublicLayoutComponent } from './public-layout/public-layout.component';
   imports: [
     HttpClientModule,
     BrowserModule,
-    SharedModule,
+    SharedModule.forRoot(),
     BrowserAnimationsModule,
     RouterModule.forRoot(ROUTES)
   ],
-  providers: [LoginService, LoggedInGuard, NotificationService],
+  providers: [LoggedInGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

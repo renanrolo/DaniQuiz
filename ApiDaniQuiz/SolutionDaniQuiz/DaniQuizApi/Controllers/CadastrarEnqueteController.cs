@@ -10,9 +10,9 @@ using DaniQuizDomain.IApplication;
 
 namespace DaniQuizApi.Controllers
 {
+    //[Produces("application/json")]
     [Authorize("Bearer")]
-    [Produces("application/json")]
-    [Route("api/CadastrarEnquete")]
+    [Route("api/[controller]")]
     public class CadastrarEnqueteController : Controller
     {
         private IAppEnquete _appEnquete { get; set; }

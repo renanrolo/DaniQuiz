@@ -37,7 +37,7 @@ namespace DaniQuizApi.Controllers
 
             if (credenciaisValidas)
             {
-                return AutenticarUsuarioLogin.Autenticar(usuario);
+                return AutenticarUsuarioLogin.Autenticar(usuario, signingConfigurations, tokenConfigurations);
             }
 
             return new
